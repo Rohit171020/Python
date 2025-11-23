@@ -74,4 +74,38 @@
 
 
 
-        
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_head(self, value):
+        new_node = Node(value)     # Step 1: Create new node
+        new_node.next = self.head  # Step 2: Link new node to current head
+        self.head = new_node       # Step 3: Update head
+
+    def display(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
+
+# --------------------------
+# Example / Working
+# --------------------------
+
+LL = LinkedList()
+
+LL.insert_at_head(10)   # Inserting first element
+LL.insert_at_head(20)   # Inserting second element
+LL.insert_at_head(30)   # Inserting third element
+LL.display()            # Output expected: 30 -> 20 -> 10 -> None
+
+
+
+
